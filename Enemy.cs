@@ -1,17 +1,6 @@
-using System.Collections;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour 
+public class Enemy : MonoBehaviour
 {
-    private float _speed = 4f;
 
-    public IEnumerator Move()
-    {
-        while (isActiveAndEnabled)
-        {
-            transform.Translate(Vector3.forward * _speed * Time.deltaTime);
-
-            yield return null;
-        }
-    }
 }
