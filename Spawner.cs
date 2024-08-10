@@ -3,17 +3,18 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private SpawnerPoints[] _spawningPoint;
-    [SerializeField, Min(0)] private float _countSecondsBeforeSpawp;
+    [SerializeField] private SpawnerPoints[] _spawningPoints;
+    [SerializeField, Min(0)] private float _countSecondsBeforeSpawn; 
 
-    private int minRandom = 0;
-    private int maxRandom = 3;
+    private int _minRandom = 0;
+    private int _maxRandom = 3;
 
     private void Start()
     {
-        var wait = new WaitForSeconds(_countSecondsBeforeSpawp);
+        var wait = new WaitForSeconds(_countSecondsBeforeSpawn);
         StartCoroutine(Spawning(wait));
     }
+
     private IEnumerator Spawning(WaitForSeconds wait)
     {
         while (true)
@@ -25,8 +26,8 @@ public class Spawner : MonoBehaviour
 
     private void ActivatePoint()
     {
-        int _currentSpawnPoint = Random.Range(minRandom, maxRandom);
-        SpawnerPoints SpawnerPoint = _spawningPoint[_currentSpawnPoint];
+        int _currentSpawnPoint = Random.Range(_minRandom, _maxRandom);
+        SpawnerPoints SpawnerPoint = _spawningPoints[_currentSpawnPoint];
         SpawnerPoint.Spawn();
     }
 }
