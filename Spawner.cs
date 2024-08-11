@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private SpawnerPoints[] _spawningPoints;
+    [SerializeField] private SpawnerPoints[] _spawningPoint;
     [SerializeField, Min(0)] private float _countSecondsBeforeSpawn; 
 
     private int _minRandom = 0;
@@ -26,8 +26,8 @@ public class Spawner : MonoBehaviour
 
     private void ActivatePoint()
     {
-        int _currentSpawnPoint = Random.Range(_minRandom, _maxRandom);
-        SpawnerPoints SpawnerPoint = _spawningPoints[_currentSpawnPoint];
-        SpawnerPoint.Spawn();
+        int currentSpawnPoint = Random.Range(_minRandom, _maxRandom);
+        SpawnerPoints spawnerPoint = _spawningPoint[currentSpawnPoint];
+        spawnerPoint.Spawn();
     }
 }
