@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class SpawnerPoints : MonoBehaviour
 {
-    [SerializeField] private Vector3 _position;
-    [SerializeField] private Mover _moverPrefab;
-    [SerializeField] private Vector3 _direction;
+    [SerializeField] private Vector3 _position; 
+    [SerializeField] private Enemy _enemyPrefab; 
+    [SerializeField] private Target _target;
 
     public void Spawn()
     {
-        Mover copy = Instantiate(_moverPrefab, _position, Quaternion.identity);
-        copy.SetDirection(_direction);
+        Enemy copy = Instantiate(_enemyPrefab, _position, Quaternion.identity);
+        copy.SetTarget(_target);
     }
 }
